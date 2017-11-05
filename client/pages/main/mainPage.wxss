@@ -1,0 +1,33 @@
+/* pages/main/mainPage.wxss */
+.page{
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.label_bg
+{
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.btns
+{
+   display: inline-flex;
+   width: 100%;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content:center;
+   position: fixed;
+   bottom: 0rpx;
+   
+}
+
+.finger
+{
+  display: flex;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
