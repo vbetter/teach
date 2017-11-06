@@ -6,6 +6,11 @@ var m_config_group;
 var m_config_step;
 var m_config_group_ids;
 
+var m_windowHeight = 0;
+var m_windowWidth = 0;
+
+var m_scale =1;
+
 Page({
 
   /**
@@ -14,6 +19,7 @@ Page({
   data: {
     m_finggerTop:0,
     m_fingerLeft:0,
+    m_bgHeight:1100,
     //m_finger_hidden:false,
   },
 
@@ -21,7 +27,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res)
+        m_windowHeight = res.windowHeight;
+        m_windowWidth = res.windowWidth;
+        m_scale = 750 / m_windowWidth;
+        that.setData({
+          m_bgWidth: 750,
+          m_bgHeight: m_windowHeight * m_scale- 100,
+        })
+      }
+    })
+
+
   wx.setNavigationBarTitle({
     title: '面对面收款',
   })
@@ -44,8 +64,8 @@ Page({
 
     this.setData({
       bg_img: m_config_step.step_img,
-      m_fingerLeft: m_config_step.finger_posX,
-      m_finggerTop: m_config_step.finger_posY,
+      m_fingerLeft: m_config_step.finger_posX ,
+      m_finggerTop: m_config_step.finger_posY ,
       m_finger_hidden: isHidden,
     });
   },
@@ -101,7 +121,7 @@ Page({
     }
     return {
       title: m_config_step.name,
-      path: '/main/mainPage',
+      path: 'pages/main/mainPage',
       success: function (res) {
         // 转发成功
       },
@@ -109,6 +129,30 @@ Page({
         // 转发失败
       }
     }
+  },
+  btn_clickFinger:function(e)
+  {
+    m_index++;
+
+    if (m_index >= m_config_group_ids.length) {
+      m_index = m_config_group_ids.length - 1;
+
+      wx.showModal({
+        title: '提示',
+        content: "这是最后一步,无法再下一步",
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
+
+
+    this.UpdateUI();
   },
   btn_last:function(e)
   {
