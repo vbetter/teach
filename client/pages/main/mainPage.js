@@ -9,7 +9,8 @@ var m_config_group_ids;
 var m_windowHeight = 0;
 var m_windowWidth = 0;
 
-var m_scale =1;
+var m_scaleX =1;
+var m_scaleY =1;
 
 Page({
 
@@ -20,7 +21,7 @@ Page({
     m_finggerTop:0,
     m_fingerLeft:0,
     m_bgHeight:1100,
-    //m_finger_hidden:false,
+    m_finger_hidden:false,
   },
 
   /**
@@ -33,10 +34,9 @@ Page({
         console.log(res)
         m_windowHeight = res.windowHeight;
         m_windowWidth = res.windowWidth;
-        m_scale = 750 / m_windowWidth;
         that.setData({
           m_bgWidth: 750,
-          m_bgHeight: m_windowHeight * m_scale- 100,
+          m_bgHeight: 1100,
         })
       }
     })
@@ -64,8 +64,8 @@ Page({
 
     this.setData({
       bg_img: m_config_step.step_img,
-      m_fingerLeft: m_config_step.finger_posX ,
-      m_finggerTop: m_config_step.finger_posY ,
+      m_fingerLeft: m_config_step.finger_posX,
+      m_finggerTop: m_config_step.finger_posY,
       m_finger_hidden: isHidden,
     });
   },

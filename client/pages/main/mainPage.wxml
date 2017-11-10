@@ -5,18 +5,18 @@
 
 
 <view class="label_bg">
-        <image style="width: {{m_bgWidth}}rpx; height: {{m_bgHeight}}rpx; background-color: #eeeeee;" mode="scaleToFill" src="{{bg_img}}"></image>
+        <image style="width: {{m_bgWidth}}rpx; height: {{m_bgHeight}}rpx; background-color: #eeeeee;" mode="aspectFit" src="{{bg_img}}"></image>
 </view>
 
 <image class='finger' hidden="{{m_finger_hidden}}" style="width: 354rpx; height: 354rpx ; top:{{m_finggerTop}}rpx ;left:{{m_fingerLeft}}rpx;" mode="scaleToFill" src="../res/finger.png" bindtap="btn_clickFinger"></image>
 
-<view class='btns'  style="width: 750rpx; height: 100rpx;background-color: #eeeeee;">
+<view class='btns'  style="width: 750rpx; height: 90rpx;background-color: #eeeeee;">
 
-  <button style="width: 200rpx; height: 100rpx" type="primary" size="50"  bindtap="btn_last"> 上一步 </button>
+  <button style="" type="primary"  bindtap="btn_last"> 上一步 </button>
 
-  <button style="width: 200rpx; height: 100rpx" type="warn" size="50"  bindtap="btn_exp"> 解说步骤 </button>
+  <button style="" type="warn"   bindtap="btn_exp"> 解说步骤 </button>
 
-  <button style="width: 200rpx; height: 100rpx" type="primary" size="50"  bindtap="btn_next"> 下一步 </button>
+  <button style="" type="primary"  bindtap="btn_next"> 下一步 </button>
 
 </view>
 
