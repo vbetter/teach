@@ -74,17 +74,17 @@ Page({
       m_fingerLeft: m_config_step.finger_posX,
       m_finggerTop: m_config_step.finger_posY,
       m_finger_hidden: isHidden,
-      animationData: animation.export(),
+      //animationData: animation.export(),
 
     });
-
+/*
     setTimeout(function () {
       animation.translate(30).step()
       this.setData({
         animationData: animation.export()
       })
     }.bind(this), 0)
-
+*/
 
   },
   /**
