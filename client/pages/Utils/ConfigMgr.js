@@ -4,9 +4,40 @@ var m_config_group =
       "id": 1000,
       "name": "面对面收款",
       "type": "1",
-      "id_group": "1000;1001;1002;1003;1004"
+      "id_group": "1000;1001;1002;1003;1004",
+      "title": "面对面收款",
+      "icon": "../res/icon/get.png",
+      "desc": "如何面对面使用微信收款",
+      "is_ok": "false"
+    },
+    {
+      "id": 1001,
+      "name": "发红包",
+      "type": 2,
+      "title": "发红包",
+      "icon": "../res/icon/red.png",
+      "desc": "如何发送微信红包",
+      "is_ok": "false"
+    },
+    {
+      "id": 1002,
+      "name": "地图导航",
+      "type": 3,
+      "title": "地图导航",
+      "icon": "../res/icon/map.png",
+      "desc": "使用百度地图导航目的地",
+      "is_ok": "false"
+    },
+    {
+      "id": 1003,
+      "name": "微信转账",
+      "type": 4,
+      "title": "微信转账",
+      "icon": "../res/icon/to.png",
+      "desc": "使用微信转账",
+      "is_ok": "false"
     }
-  ];
+  ]
 
 
 var m_config_step =

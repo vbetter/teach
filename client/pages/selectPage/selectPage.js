@@ -1,4 +1,7 @@
 // pages/selectPage/selectPage.js
+
+var ConfigMgr = require('../Utils/ConfigMgr.js')
+
 Page({
 
   /**
