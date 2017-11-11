@@ -100,8 +100,27 @@ var m_config_step =
 module.exports = {
   FindStepByID: FindStepByID,
   FindGroupByID: FindGroupByID,
+  GetGroupList: GetGroupList,
+  SetCurGroup: SetCurGroup,
+  GetCurGroup: GetCurGroup,
 }
 
+var m_curGroup = null;
+
+function GetCurGroup()
+{
+  return m_curGroup;
+}
+
+function SetCurGroup(v)
+{
+  m_curGroup = v;
+}
+
+function GetGroupList()
+{
+  return m_config_group;
+}
 
 function FindGroupByID(itemid) {
   for (let i = 0; i < m_config_group.length; i++) {

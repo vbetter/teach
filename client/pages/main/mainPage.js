@@ -22,6 +22,7 @@ Page({
     m_fingerLeft:0,
     m_bgHeight:1100,
     m_finger_hidden:false,
+    animationData:{},
   },
 
   /**
@@ -62,12 +63,29 @@ Page({
 
     console.log(isHidden)
 
+
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+
     this.setData({
       bg_img: m_config_step.step_img,
       m_fingerLeft: m_config_step.finger_posX,
       m_finggerTop: m_config_step.finger_posY,
       m_finger_hidden: isHidden,
+      animationData: animation.export(),
+
     });
+
+    setTimeout(function () {
+      animation.translate(30).step()
+      this.setData({
+        animationData: animation.export()
+      })
+    }.bind(this), 0)
+
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

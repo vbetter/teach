@@ -2,20 +2,25 @@
 
 var ConfigMgr = require('../Utils/ConfigMgr.js')
 
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    list:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
+    this.setData
+      ({
+        list: ConfigMgr.GetGroupList(),
+      });
   },
 
   /**
@@ -65,5 +70,29 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  onClickItem:function(e)
+  {
+
+    var item = e.currentTarget.dataset.item;
+
+    if(item == null || item.is_ok =="false")
+    {
+      wx.showModal({
+        title: '提示',
+        content: '数据异常',
+        showCancel:false,
+      })
+    }
+    else
+    {
+      console.log(ConfigMgr.GetCurGroup())
+
+      ConfigMgr.SetCurGroup(item)
+
+      wx.navigateTo({
+        url: '../../pages/main/mainPage',
+      })
+    }
   }
 })
