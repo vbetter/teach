@@ -1,9 +1,7 @@
 {
   "pages": [
-
     "pages/selectPage/selectPage",
     "pages/main/mainPage"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

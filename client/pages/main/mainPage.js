@@ -18,8 +18,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    m_finggerTop:0,
-    m_fingerLeft:0,
+    m_circlePosY:0,
+    m_circlePosX:0,
+    m_circleWidth:122,
+    m_circleHeight:122,
     m_bgHeight:1100,
     m_finger_hidden:false,
     animationData:{},
@@ -42,24 +44,25 @@ Page({
       }
     })
 
-
-  wx.setNavigationBarTitle({
-    title: '面对面收款',
-  })
   m_index = 0;
-  m_config_group = ConfigMgr.FindGroupByID(1000);
+  m_config_group = ConfigMgr.GetCurGroup();
   m_config_group_ids = m_config_group.id_group.split(";");
   m_config_step = ConfigMgr.FindStepByID(m_config_group_ids[m_index]);
   console.log(m_config_group);
   console.log(m_config_group_ids);
   console.log(m_config_step)
+
+  wx.setNavigationBarTitle({
+    title: m_config_group.name,
+  })
+
   this.UpdateUI();
   },
   UpdateUI:function()
   {
     m_config_step = ConfigMgr.FindStepByID(m_config_group_ids[m_index]);
 
-    var isHidden = m_config_step.finger_img == null || m_config_step.finger_img == undefined ? true : false;
+    var isHidden = m_config_step.circle_posX == undefined || m_config_step.circle_posY == undefined ? true : false;
 
     console.log(isHidden)
 
@@ -71,8 +74,10 @@ Page({
 
     this.setData({
       bg_img: m_config_step.step_img,
-      m_fingerLeft: m_config_step.finger_posX,
-      m_finggerTop: m_config_step.finger_posY,
+      m_circlePosX: m_config_step.circle_posX,
+      m_circlePosY: m_config_step.circle_posY,
+      m_circleWidth: m_config_step.circle_width, 
+      m_circleHeight: m_config_step.circle_height,
       m_finger_hidden: isHidden,
       //animationData: animation.export(),
 
@@ -157,7 +162,7 @@ Page({
 
       wx.showModal({
         title: '提示',
-        content: "这是最后一步,无法再下一步",
+        content: "这样就可以了",
         showCancel: false,
         success: function (res) {
           if (res.confirm) {
@@ -205,7 +210,7 @@ Page({
 
       wx.showModal({
         title: '提示',
-        content: "这是最后一步,无法再下一步",
+        content: "这样就可以了",
         showCancel: false,
         success: function (res) {
           if (res.confirm) {

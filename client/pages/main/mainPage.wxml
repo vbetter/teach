@@ -8,7 +8,7 @@
         <image style="width: {{m_bgWidth}}rpx; height: {{m_bgHeight}}rpx; background-color: #eeeeee;" mode="aspectFit" src="{{bg_img}}"></image>
 </view>
 
-<image class='finger' animation = "{{animationData}}" hidden="{{m_finger_hidden}}" style="width: 354rpx; height: 354rpx ; top:{{m_finggerTop}}rpx ;left:{{m_fingerLeft}}rpx;" mode="scaleToFill" src="../res/finger.png" bindtap="btn_clickFinger"></image>
+<image class='finger' animation = "{{animationData}}" hidden="{{m_finger_hidden}}" style="width: {{m_circleWidth}}rpx; height: {{m_circleHeight}}rpx ;top:{{m_circlePosY}}rpx ;left:{{m_circlePosX}}rpx;" mode="scaleToFill" src="../res/icon/circle.png" bindtap="btn_clickFinger"></image>
 
 <view class='btns'  style="width: 750rpx; height: 90rpx;background-color: #eeeeee;">
 
